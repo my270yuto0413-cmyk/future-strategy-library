@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>大学生のための未来戦略ライブラリ</title>
+
   <meta
     name="description"
-    content="薬学生・生命科学系学生のための学習・英語・AI活用・キャリア支援プラットフォーム。勉強に使える。未来につながる。"
+    content="現在は北里大学薬学部生を対象に運営している、学習・英語・AI活用・研究室選択・キャリア形成のための資料ライブラリ。勉強に使える。未来につながる。"
   />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="#top" class="site-logo">
+      <a href="#top" class="site-logo" aria-label="未来戦略ライブラリ トップへ">
         <span class="logo-mark"></span>
         <span>未来戦略ライブラリ</span>
       </a>
@@ -22,6 +25,7 @@
       <nav class="site-nav" aria-label="メインナビゲーション">
         <a href="#about">About</a>
         <a href="#contents">Contents</a>
+        <a href="#materials">Materials</a>
         <a href="#registration">Registration</a>
         <a href="#message">Message</a>
       </nav>
@@ -44,11 +48,11 @@
 
       <div class="container hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">PHARMACY & LIFE SCIENCE STUDENTS’ RESOURCE LIBRARY</p>
+          <p class="eyebrow">PHARMACY STUDENTS’ RESOURCE LIBRARY</p>
 
-          <h1>
-            勉強に使える。<br />
-            未来につながる。
+          <h1 class="hero-catch">
+            <span>勉強に使える。</span>
+            <span>未来につながる。</span>
           </h1>
 
           <p class="hero-subtitle">
@@ -56,10 +60,15 @@
           </p>
 
           <p class="hero-text">
-            薬学生・生命科学系学生のための、学習・英語・AI活用・キャリア支援プラットフォーム。
-            学部での学びから、TOEIC・英検、AI活用、研究室選択、大学院進学まで。
+            現在は北里大学薬学部生を対象に運営している、
+            学習・英語・AI活用・研究室選択・キャリア形成のための資料ライブラリです。
             学生目線で整理された資料を通して、学びと将来の選択肢を広げます。
           </p>
+
+          <div class="audience-banner">
+            <span class="audience-label">現在の対象</span>
+            <span>北里大学薬学部生向けに運営しています</span>
+          </div>
 
           <div class="hero-actions">
             <a
@@ -71,14 +80,14 @@
               Googleフォームで利用登録する
             </a>
 
-            <a class="button button-secondary" href="#contents">
-              提供コンテンツを見る
+            <a class="button button-secondary" href="#materials">
+              資料ギャラリーを見る
             </a>
           </div>
 
           <div class="hero-notes">
+            <span>北里大学薬学部向け</span>
             <span>登録無料</span>
-            <span>学生向け</span>
             <span>Google Drive資料へ案内</span>
           </div>
         </div>
@@ -119,10 +128,12 @@
         <div>
           <p class="section-label">ABOUT</p>
           <h2>未来の選択肢を広げる、学生目線の資料ライブラリ。</h2>
+
           <p class="section-lead">
-            未来戦略ライブラリは、薬学生・生命科学系学生が、学習・英語・AI活用・研究室選択・大学院進学について、
+            未来戦略ライブラリは、北里大学薬学部生が、学習・英語・AI活用・研究室選択・大学院進学について、
             自分で考え、行動するための資料集です。
           </p>
+
           <p>
             単に知識を渡すのではなく、
             「なぜ学ぶのか」「どう選ぶのか」「次に何をするのか」を考えるための
@@ -209,15 +220,116 @@
       </div>
     </section>
 
+    <section id="materials" class="section materials">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">MATERIALS</p>
+          <h2>公開資料ギャラリー</h2>
+          <p>
+            英語学習、AI活用、研究室選択、キャリア形成まで。
+            未来戦略ライブラリでは、目的別に使えるオリジナル資料を公開しています。
+          </p>
+        </div>
+
+        <div class="materials-grid">
+          <article class="material-card">
+            <div class="material-image-wrap">
+              <img src="images/why-english.png" alt="翻訳できる時代に、なぜ英語を学ぶのか。の表紙" />
+            </div>
+            <div class="material-body">
+              <span class="material-category">English / Introduction</span>
+              <h3>翻訳できる時代に、なぜ英語を学ぶのか。</h3>
+              <p>AI時代に、英語学習の意味を問い直すための導入資料。</p>
+              <span class="material-status">登録後に閲覧可能</span>
+            </div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-image-wrap">
+              <img src="images/toeic.png" alt="TOEICから、世界へ。の表紙" />
+            </div>
+            <div class="material-body">
+              <span class="material-category">TOEIC Strategy</span>
+              <h3>TOEICから、世界へ。</h3>
+              <p>TOEICを英語学習の入口として、実用英語へ接続する戦略書。</p>
+              <span class="material-status">登録後に閲覧可能</span>
+            </div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-image-wrap">
+              <img src="images/eiken-grade1.png" alt="英検1級、その先へ。の表紙" />
+            </div>
+            <div class="material-body">
+              <span class="material-category">EIKEN Grade 1</span>
+              <h3>英検1級、その先へ。</h3>
+              <p>合格の先にある実用英語へつなげるための学習戦略。</p>
+              <span class="material-status">登録後に閲覧可能</span>
+            </div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-image-wrap">
+              <img src="images/ai-guide.png" alt="AIで、未来を設計する。の表紙" />
+            </div>
+            <div class="material-body">
+              <span class="material-category">AI Literacy</span>
+              <h3>AIで、未来を設計する。</h3>
+              <p>価値を最大化し、社会的信頼と自己価値を守るためのChatGPT活用ガイド。</p>
+              <span class="material-status">登録後に閲覧可能</span>
+            </div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-image-wrap">
+              <img src="images/ai-outsider.png" alt="AI時代、専門外は武器になる。の表紙" />
+            </div>
+            <div class="material-body">
+              <span class="material-category">AI Implementation</span>
+              <h3>AI時代、専門外は武器になる。</h3>
+              <p>生成AIとGoogle Apps Scriptによる登録自動化システムの実装事例。</p>
+              <span class="material-status">登録後に閲覧可能</span>
+            </div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-image-wrap">
+              <img src="images/ai-knowledge.png" alt="AI時代の知識創造と価値観形成の表紙" />
+            </div>
+            <div class="material-body">
+              <span class="material-category">AI & Knowledge Creation</span>
+              <h3>AI時代の知識創造と価値観形成</h3>
+              <p>AIとの対話による思考拡張、理念形成、価値観の外在化を扱う実践報告。</p>
+              <span class="material-status">登録後に閲覧可能</span>
+            </div>
+          </article>
+
+          <article class="material-card">
+            <div class="material-image-wrap">
+              <img src="images/research-career.png" alt="研究を、未来の仕事にする。の表紙" />
+            </div>
+            <div class="material-body">
+              <span class="material-category">Research Career</span>
+              <h3>研究を、未来の仕事にする。</h3>
+              <p>研究者キャリアと研究室選びの判断軸を示すガイド。</p>
+              <span class="material-status">登録後に閲覧可能</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section why">
       <div class="container why-panel">
         <p class="section-label light">WHY THIS LIBRARY</p>
         <h2>重要な選択ほど、早く知ることで未来が変わる。</h2>
+
         <p>
           大学生活には、英語学習、AI活用、研究室選択、大学院進学、就職活動など、
           多くの重要な意思決定があります。
           しかし、それらの情報は必ずしも体系的に整理されて学生へ届いているわけではありません。
         </p>
+
         <p>
           未来戦略ライブラリは、断片的な情報を、将来像と結びついた判断軸として整理し、
           学生が自分の意思で選択できる状態を支援します。
@@ -234,12 +346,15 @@
         <div>
           <p class="section-label">REGISTRATION</p>
           <h2>Googleフォームから、かんたんに利用登録できます。</h2>
+
           <p class="section-lead">
-            未来戦略ライブラリは、登録制で運営しています。
+            未来戦略ライブラリは、現在、北里大学薬学部生を対象とした登録制で運営しています。
             利用を希望する方は、Googleフォームから必要事項を入力してください。
           </p>
+
           <p>
-            登録内容をもとに、Google Apps Scriptによる自動処理で、案内メール送信や共有設定が進みます。
+            登録内容をもとに、Google Apps Scriptによる自動処理で、
+            案内メール送信や共有設定が進みます。
             スムーズに資料へアクセスできるよう、運営基盤を整えています。
           </p>
 
@@ -365,8 +480,9 @@
       <div class="container final-card">
         <p class="section-label light">START HERE</p>
         <h2>学びに使える。未来につながる。</h2>
+
         <p>
-          未来戦略ライブラリは、あなたの学習と進路選択を支えるための資料集です。
+          未来戦略ライブラリは、北里大学薬学部生の学習と進路選択を支えるための資料集です。
           必要な資料にアクセスし、自分の未来を考えるきっかけとして活用してください。
         </p>
 
@@ -380,8 +496,8 @@
         </a>
 
         <div class="final-tags">
+          <span>北里大学薬学部向け</span>
           <span>登録無料</span>
-          <span>学生向け</span>
           <span>利用ルール確認後にアクセス</span>
         </div>
       </div>
@@ -392,11 +508,12 @@
     <div class="container footer-inner">
       <div>
         <h2>大学生のための未来戦略ライブラリ</h2>
-        <p>Pharmacy & Life Science Students’ Resource Library</p>
+        <p>Pharmacy Students’ Resource Library</p>
       </div>
 
       <p class="footer-note">
         本サイトは、学生による学習・キャリア支援活動の案内ページです。
+        現在は北里大学薬学部生向けに運営しています。
         掲載内容は随時更新される可能性があります。
         試験・履修・進路等の重要情報は、必ず大学公式情報と照合してください。
       </p>
