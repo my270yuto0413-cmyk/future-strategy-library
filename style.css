@@ -663,16 +663,20 @@ img {
 .material-image-wrap {
   background: #eaf4f5;
   overflow: hidden;
+  position: relative;
+  min-height: 300px;
 }
 
 .material-image-wrap img {
   width: 100%;
+  height: 100%;
+  min-height: 300px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: top;
+  object-position: top center;
   display: block;
-  transform: scale(1.01);
 }
+
 
 .material-body {
   padding: 20px 20px 22px;
