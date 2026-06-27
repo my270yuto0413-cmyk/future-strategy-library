@@ -910,12 +910,36 @@ img {
   display: none;
 }
 
+.observatory-stage {
+  display: none;
+}
+
 @media (min-width: 921px) {
   .hero {
     --compass-cyan: rgba(115, 231, 255, 0.72);
     --compass-cyan-soft: rgba(115, 231, 255, 0.18);
     --compass-gold: rgba(214, 164, 58, 0.58);
     --compass-ink: rgba(2, 8, 18, 0.34);
+    --observatory-x: 50%;
+    --observatory-y: 46%;
+    --observatory-gaze-x: 0px;
+    --observatory-gaze-y: 0px;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% 8% -10%;
+    z-index: 0;
+    height: 42%;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(115, 231, 255, 0.2), transparent 58%),
+      linear-gradient(90deg, transparent 12%, rgba(115, 231, 255, 0.08), rgba(214, 164, 58, 0.08), transparent 88%);
+    filter: blur(2px);
+    opacity: 0.72;
+    transform-origin: center bottom;
+    animation: observatoryHorizonWake 14s ease-in-out infinite;
   }
 
   .hero-grid {
@@ -923,19 +947,223 @@ img {
     gap: clamp(42px, 4.4vw, 70px);
   }
 
+  .hero-content {
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-content::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: clamp(78px, 8vw, 118px);
+    z-index: -1;
+    width: min(520px, 84%);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(115, 231, 255, 0.64), rgba(214, 164, 58, 0.36), transparent);
+    box-shadow: 0 0 28px rgba(115, 231, 255, 0.26);
+    opacity: 0.42;
+    transform-origin: left center;
+    animation: observatoryCtaRoute 12s ease-in-out infinite;
+  }
+
+  .hero-actions .button-primary {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero-actions .button-primary::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    z-index: -1;
+    border-radius: inherit;
+    border: 1px solid rgba(115, 231, 255, 0.4);
+    box-shadow: 0 0 34px rgba(115, 231, 255, 0.18);
+    opacity: 0.58;
+    animation: observatoryCtaPulse 6.8s ease-in-out infinite;
+  }
+
   .hero-visual {
     min-height: clamp(540px, 43vw, 640px);
     isolation: isolate;
   }
 
+  /* Desktop Future Observatory */
+
+  .observatory-stage {
+    display: block;
+    position: absolute;
+    inset: clamp(-38px, -2.2vw, -14px) clamp(-86px, -5vw, -36px) clamp(-22px, -1vw, 0px) clamp(-88px, -6vw, -44px);
+    z-index: 0;
+    overflow: visible;
+    pointer-events: none;
+    opacity: 0.96;
+    transform: translate3d(var(--observatory-gaze-x), var(--observatory-gaze-y), 0);
+    transition: transform 0.24s ease-out;
+  }
+
+  .observatory-stage::before,
+  .observatory-stage::after {
+    content: "";
+    position: absolute;
+    inset: 7%;
+    pointer-events: none;
+  }
+
+  .observatory-stage::before {
+    border-radius: 50%;
+    background-image:
+      radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.85) 0 1px, transparent 1.8px),
+      radial-gradient(circle at 78% 16%, rgba(115, 231, 255, 0.72) 0 1px, transparent 1.8px),
+      radial-gradient(circle at 88% 68%, rgba(255, 255, 255, 0.58) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 22% 76%, rgba(115, 231, 255, 0.62) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 52% 92%, rgba(214, 164, 58, 0.62) 0 1px, transparent 1.8px);
+    opacity: 0.58;
+    animation: observatoryParticleDrift 18s ease-in-out infinite alternate;
+  }
+
+  .observatory-stage::after {
+    inset: 11%;
+    border-radius: 46% 54% 52% 48%;
+    border: 1px solid rgba(115, 231, 255, 0.08);
+    box-shadow:
+      inset 0 0 72px rgba(115, 231, 255, 0.035),
+      0 0 42px rgba(115, 231, 255, 0.035);
+    transform: rotate(-14deg);
+  }
+
+  .observatory-light-field {
+    position: absolute;
+    inset: 0;
+    border-radius: 48%;
+    background:
+      radial-gradient(circle at var(--observatory-x) var(--observatory-y), rgba(255, 255, 255, 0.22), rgba(115, 231, 255, 0.12) 15%, transparent 34%),
+      radial-gradient(ellipse at 50% 68%, rgba(115, 231, 255, 0.18), transparent 54%),
+      radial-gradient(ellipse at 62% 48%, rgba(214, 164, 58, 0.1), transparent 40%);
+    mix-blend-mode: screen;
+    opacity: 0.82;
+    animation: observatoryLightBreath 13s ease-in-out infinite;
+  }
+
+  .observatory-horizon-line {
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    bottom: 23%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(115, 231, 255, 0.24), rgba(255, 255, 255, 0.68), rgba(214, 164, 58, 0.28), transparent);
+    box-shadow:
+      0 0 34px rgba(115, 231, 255, 0.34),
+      0 -22px 82px rgba(115, 231, 255, 0.12);
+    opacity: 0.74;
+    transform-origin: center;
+    animation: observatoryLineOpen 10s ease-in-out infinite;
+  }
+
+  .observatory-map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 0 18px rgba(115, 231, 255, 0.14));
+  }
+
+  .observatory-grid-lines path,
+  .observatory-grid-lines ellipse {
+    fill: none;
+    stroke: rgba(115, 231, 255, 0.12);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .observatory-life-network path {
+    fill: none;
+    stroke: rgba(181, 255, 235, 0.18);
+    stroke-width: 1.1;
+    stroke-dasharray: 5 10;
+    vector-effect: non-scaling-stroke;
+    animation: observatoryNetworkWake 16s ease-in-out infinite;
+  }
+
+  .observatory-life-network circle {
+    fill: rgba(181, 255, 235, 0.58);
+    filter: drop-shadow(0 0 7px rgba(181, 255, 235, 0.3));
+  }
+
+  .observatory-path {
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0.78;
+    vector-effect: non-scaling-stroke;
+    animation: observatoryPathDraw 12s ease-in-out infinite;
+  }
+
+  .observatory-path-english,
+  .observatory-path-research,
+  .observatory-path-life {
+    stroke: url(#observatoryPathCyan);
+  }
+
+  .observatory-path-ai,
+  .observatory-path-career {
+    stroke: url(#observatoryPathGold);
+  }
+
+  .observatory-path-ai {
+    animation-delay: 0.55s;
+  }
+
+  .observatory-path-research {
+    animation-delay: 1.05s;
+  }
+
+  .observatory-path-life {
+    animation-delay: 1.55s;
+  }
+
+  .observatory-path-career {
+    animation-delay: 2.05s;
+  }
+
+  .observatory-anchor {
+    fill: rgba(255, 255, 255, 0.88);
+    stroke: rgba(115, 231, 255, 0.5);
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 10px rgba(115, 231, 255, 0.34));
+    opacity: 0;
+    transform-origin: center;
+    animation: observatoryAnchorWake 12s ease-in-out infinite;
+  }
+
+  .anchor-ai {
+    animation-delay: 0.55s;
+  }
+
+  .anchor-research {
+    animation-delay: 1.05s;
+  }
+
+  .anchor-life {
+    animation-delay: 1.55s;
+  }
+
+  .anchor-career {
+    animation-delay: 2.05s;
+  }
+
   .compass-field {
-    width: min(100%, 560px);
+    width: min(116%, 650px);
     aspect-ratio: 1;
     display: block;
     position: absolute;
-    top: clamp(8px, 3vw, 34px);
-    right: 0;
-    z-index: 1;
+    top: clamp(-24px, 1.4vw, 12px);
+    right: clamp(-80px, -4vw, -30px);
+    z-index: 2;
     pointer-events: none;
   }
 
@@ -949,7 +1177,8 @@ img {
       linear-gradient(0deg, transparent 49.7%, rgba(115, 231, 255, 0.1) 50%, transparent 50.3%),
       radial-gradient(circle at center, transparent 0 52%, rgba(115, 231, 255, 0.08) 52.3% 52.7%, transparent 53%),
       radial-gradient(circle at center, transparent 0 70%, rgba(255, 255, 255, 0.07) 70.3% 70.7%, transparent 71%);
-    opacity: 0.74;
+    opacity: 0.82;
+    animation: observatoryCompassResolve 18s ease-in-out infinite;
   }
 
   .compass-field::after {
@@ -957,7 +1186,7 @@ img {
     position: absolute;
     inset: 17%;
     border-radius: 44% 56% 48% 52%;
-    border: 1px solid rgba(115, 231, 255, 0.11);
+    border: 1px solid rgba(115, 231, 255, 0.14);
     transform: rotate(-18deg);
     box-shadow: inset 0 0 36px rgba(115, 231, 255, 0.05);
   }
@@ -976,8 +1205,8 @@ img {
   }
 
   .compass-core {
-    width: 116px;
-    height: 116px;
+    width: 128px;
+    height: 128px;
     position: absolute;
     left: 50%;
     top: 47%;
@@ -1070,15 +1299,18 @@ img {
   }
 
   .compass-panel {
-    top: 118px;
-    right: 58px;
+    top: 112px;
+    right: 66px;
     z-index: 6;
     width: min(100%, 360px);
     padding: 26px;
     background:
       linear-gradient(145deg, rgba(2, 8, 18, 0.44), rgba(3, 38, 53, 0.26)),
       rgba(255, 255, 255, 0.055);
-    border-color: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.23);
+    box-shadow:
+      0 28px 80px rgba(0, 0, 0, 0.34),
+      0 0 54px rgba(115, 231, 255, 0.08);
   }
 
   .compass-panel::before {
@@ -1113,9 +1345,10 @@ img {
       linear-gradient(145deg, rgba(2, 8, 18, 0.38), rgba(3, 38, 53, 0.24)),
       rgba(255, 255, 255, 0.055);
     border-color: rgba(115, 231, 255, 0.2);
+    opacity: 0.98;
     box-shadow:
       0 18px 42px rgba(0, 0, 0, 0.24),
-      0 0 28px rgba(115, 231, 255, 0.08);
+      0 0 32px rgba(115, 231, 255, 0.1);
     animation: compassNodeDrift 9s ease-in-out infinite;
   }
 
@@ -1129,6 +1362,15 @@ img {
     border-radius: 50%;
     background: var(--compass-cyan);
     box-shadow: 0 0 18px rgba(115, 231, 255, 0.52);
+  }
+
+  .hero.is-observatory-ready .compass-node {
+    animation-name: observatoryNodeWake, compassNodeDrift;
+    animation-duration: 1.35s, 10s;
+    animation-timing-function: ease, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: both, none;
+    animation-delay: var(--node-delay, 0.6s), calc(var(--node-delay, 0.6s) + 1s);
   }
 
   .compass-node span,
@@ -1148,30 +1390,35 @@ img {
 
   .hero-visual .card-a {
     left: -12px;
-    top: 10px;
+    top: 22px;
+    --node-delay: 0.55s;
   }
 
   .hero-visual .card-d {
-    right: -8px;
-    top: 20px;
+    right: -14px;
+    top: 30px;
+    --node-delay: 0.9s;
     animation-delay: -2.1s;
   }
 
   .hero-visual .card-b {
     left: -50px;
-    bottom: 70px;
+    bottom: 90px;
+    --node-delay: 1.25s;
     animation-delay: -4.2s;
   }
 
   .hero-visual .card-c {
     right: -36px;
-    bottom: 42px;
+    bottom: 62px;
+    --node-delay: 1.6s;
     animation-delay: -6.3s;
   }
 
   .hero-visual .card-e {
     left: 38%;
-    bottom: -10px;
+    bottom: 2px;
+    --node-delay: 1.95s;
     animation-delay: -7.5s;
   }
 
@@ -1242,6 +1489,213 @@ img {
     50% {
       transform: translate3d(0, -5px, 0);
     }
+  }
+
+  @keyframes observatoryHorizonWake {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scaleX(0.92);
+    }
+    50% {
+      opacity: 0.82;
+      transform: scaleX(1.02);
+    }
+  }
+
+  @keyframes observatoryCtaRoute {
+    0%, 100% {
+      opacity: 0.26;
+      transform: scaleX(0.76);
+    }
+    48%, 62% {
+      opacity: 0.58;
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes observatoryCtaPulse {
+    0%, 100% {
+      opacity: 0.36;
+      transform: scale(0.985);
+    }
+    45%, 60% {
+      opacity: 0.7;
+      transform: scale(1.015);
+    }
+  }
+
+  @keyframes observatoryParticleDrift {
+    from {
+      transform: translate3d(-6px, 4px, 0) rotate(-1deg);
+    }
+    to {
+      transform: translate3d(9px, -7px, 0) rotate(1deg);
+    }
+  }
+
+  @keyframes observatoryLightBreath {
+    0%, 100% {
+      opacity: 0.62;
+      transform: scale(0.98);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes observatoryLineOpen {
+    0%, 100% {
+      opacity: 0.42;
+      transform: scaleX(0.78);
+    }
+    46%, 64% {
+      opacity: 0.86;
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes observatoryNetworkWake {
+    0%, 100% {
+      opacity: 0.18;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      opacity: 0.62;
+      stroke-dashoffset: -24;
+    }
+  }
+
+  @keyframes observatoryPathDraw {
+    0% {
+      opacity: 0;
+      stroke-dashoffset: 1;
+    }
+    18%, 68% {
+      opacity: 0.84;
+      stroke-dashoffset: 0;
+    }
+    100% {
+      opacity: 0.28;
+      stroke-dashoffset: -1;
+    }
+  }
+
+  @keyframes observatoryAnchorWake {
+    0%, 11% {
+      opacity: 0;
+      transform: scale(0.72);
+    }
+    24%, 72% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0.54;
+      transform: scale(0.92);
+    }
+  }
+
+  @keyframes observatoryNodeWake {
+    from {
+      opacity: 0;
+      filter: blur(7px);
+    }
+    to {
+      opacity: 0.98;
+      filter: blur(0);
+    }
+  }
+
+  @keyframes observatoryCompassResolve {
+    0%, 100% {
+      opacity: 0.62;
+      transform: rotate(-0.6deg) scale(0.985);
+    }
+    50% {
+      opacity: 0.86;
+      transform: rotate(0.4deg) scale(1);
+    }
+  }
+}
+
+@media (min-width: 921px) and (max-height: 760px) {
+  .hero {
+    padding-top: 84px;
+    padding-bottom: 50px;
+  }
+
+  .eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .hero-catch {
+    font-size: clamp(3rem, 5.2vw, 5rem);
+    line-height: 1.03;
+  }
+
+  .hero-subtitle {
+    margin-top: 20px;
+    font-size: clamp(1.02rem, 1.6vw, 1.28rem);
+  }
+
+  .hero-text {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    line-height: 1.68;
+  }
+
+  .hero-value-strip {
+    margin-top: 16px;
+  }
+
+  .audience-banner {
+    margin-top: 14px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .hero-actions {
+    margin-top: 22px;
+  }
+
+  .hero-action-note {
+    margin-top: 8px;
+  }
+
+  .hero-notes {
+    margin-top: 13px;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+
+  .compass-field {
+    width: min(108%, 560px);
+    top: -8px;
+    right: -34px;
+  }
+
+  .compass-panel {
+    top: 96px;
+    right: 54px;
+  }
+
+  .hero-visual .card-b {
+    bottom: 76px;
+  }
+
+  .hero-visual .card-c {
+    bottom: 50px;
+  }
+
+  .hero-visual .card-e {
+    bottom: -4px;
+  }
+
+  .scroll-cue {
+    bottom: 12px;
   }
 }
 
@@ -3005,9 +3459,30 @@ img {
     opacity: 0.58 !important;
   }
 
+  .observatory-path {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 0.62 !important;
+  }
+
+  .observatory-anchor {
+    opacity: 0.78 !important;
+    transform: none !important;
+  }
+
+  .observatory-life-network path {
+    stroke-dasharray: none !important;
+    opacity: 0.36 !important;
+  }
+
   .compass-horizon,
   .compass-core-light,
-  .compass-node {
+  .compass-node,
+  .observatory-stage,
+  .observatory-light-field,
+  .observatory-horizon-line,
+  .hero-content::after,
+  .hero-actions .button-primary::after {
     transform: none !important;
   }
 }
