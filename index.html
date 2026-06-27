@@ -111,8 +111,56 @@
       >
         無料で資料を見る
       </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
   </header>
+
+  <div class="mobile-menu-overlay" data-menu-close hidden></div>
+  <aside
+    id="mobile-menu"
+    class="mobile-menu"
+    aria-label="モバイルナビゲーション"
+    aria-hidden="true"
+    tabindex="-1"
+    hidden
+  >
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-top">
+        <p>Future Strategy Library</p>
+        <button class="mobile-menu-close" type="button" data-menu-close aria-label="メニューを閉じる">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="mobile-menu-trust">北里大学薬学部生向け・登録無料</p>
+      <nav class="mobile-menu-nav" aria-label="モバイルメニュー">
+        <a href="#value">Value</a>
+        <a href="#about">About</a>
+        <a href="#contents">Contents</a>
+        <a href="#materials">Materials</a>
+        <a href="#registration">Registration</a>
+        <a href="#rules">Rules</a>
+      </nav>
+      <a
+        class="button button-primary mobile-menu-cta"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSf8gLujuK-giYnkCnv-Cxp7qon1kY8mhnGvfkA62hOlrJgAHA/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        大学アカウントで無料登録
+      </a>
+    </div>
+  </aside>
 
   <main id="main">
     <section id="top" class="hero section" aria-labelledby="hero-title">
@@ -159,15 +207,17 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              大学アカウントで無料登録する
+              大学アカウントで無料登録
             </a>
 
             <a class="button button-secondary" href="#value">
-              何が学べるかを見る
+              資料内容を見る
             </a>
           </div>
 
-          <div class="hero-notes">
+          <p class="hero-action-note">登録無料・大学アカウント必須・無断共有禁止</p>
+
+          <div class="hero-notes" aria-label="登録前に確認できる安心材料">
             <span>大学アカウント必須</span>
             <span>登録無料</span>
             <span>学生向け資料</span>
@@ -208,6 +258,11 @@
             <strong>思考を拡張する</strong>
           </div>
 
+          <div class="floating-card card-e">
+            <span>Career</span>
+            <strong>学びを未来へ</strong>
+          </div>
+
           <div class="molecule-lines" aria-hidden="true"></div>
         </div>
       </div>
@@ -215,6 +270,40 @@
       <a class="scroll-cue" href="#value" aria-label="次のセクションへ移動">
         <span>Scroll</span>
       </a>
+    </section>
+
+    <section class="mobile-registration-guide" aria-labelledby="mobile-guide-title">
+      <div class="container mobile-guide-panel">
+        <div>
+          <p class="section-label">START GUIDE</p>
+          <h2 id="mobile-guide-title">登録までの流れ</h2>
+          <p>
+            大学アカウントでフォームを開き、利用ルールを確認したうえで資料へアクセスできます。
+          </p>
+        </div>
+        <ol class="mobile-guide-steps">
+          <li>
+            <span>1</span>
+            <strong>大学アカウントでフォームを開く</strong>
+          </li>
+          <li>
+            <span>2</span>
+            <strong>利用ルールを確認</strong>
+          </li>
+          <li>
+            <span>3</span>
+            <strong>登録後、資料にアクセス</strong>
+          </li>
+        </ol>
+        <a
+          class="button button-primary mobile-guide-button"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf8gLujuK-giYnkCnv-Cxp7qon1kY8mhnGvfkA62hOlrJgAHA/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          無料登録する
+        </a>
+      </div>
     </section>
 
     <section class="visual-story" aria-label="未来戦略ライブラリが示す学びのイメージ">
@@ -693,7 +782,7 @@
       </div>
     </section>
 
-    <section class="section rules" aria-labelledby="rules-title">
+    <section id="rules" class="section rules" aria-labelledby="rules-title">
       <div class="container">
         <div class="section-heading">
           <p class="section-label">SAFETY & RULES</p>
@@ -859,17 +948,167 @@
     </div>
   </footer>
 
+  <a
+    class="mobile-sticky-cta"
+    href="https://docs.google.com/forms/d/e/1FAIpQLSf8gLujuK-giYnkCnv-Cxp7qon1kY8mhnGvfkA62hOlrJgAHA/viewform"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="大学アカウントで無料登録する"
+  >
+    <span>無料登録する</span>
+    <small>大学アカウントで利用</small>
+  </a>
+
   <script>
     (function () {
       const root = document.documentElement;
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const mobileQuery = window.matchMedia('(max-width: 920px)');
+      const listenToMedia = (query, handler) => {
+        if (query.addEventListener) {
+          query.addEventListener('change', handler);
+        } else {
+          query.addListener(handler);
+        }
+      };
       root.classList.add('reveal-enabled');
+
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileMenu = document.querySelector('#mobile-menu');
+      const menuOverlay = document.querySelector('.mobile-menu-overlay');
+      const menuCloseControls = document.querySelectorAll('[data-menu-close]');
+      let lastFocusedElement = null;
+
+      const getFocusableMenuItems = () => mobileMenu
+        ? Array.from(mobileMenu.querySelectorAll('a, button'))
+          .filter((el) => !el.hasAttribute('disabled') && el.offsetParent !== null)
+        : [];
+
+      const closeMenu = ({ restoreFocus = true } = {}) => {
+        if (!mobileMenu || !menuToggle || !menuOverlay) return;
+        mobileMenu.classList.remove('is-open');
+        menuOverlay.classList.remove('is-visible');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'メニューを開く');
+        document.body.classList.remove('menu-open');
+
+        window.setTimeout(() => {
+          if (!mobileMenu.classList.contains('is-open')) {
+            mobileMenu.hidden = true;
+            menuOverlay.hidden = true;
+          }
+        }, reduceMotion ? 1 : 240);
+
+        if (restoreFocus && lastFocusedElement) {
+          lastFocusedElement.focus();
+        }
+      };
+
+      const openMenu = () => {
+        if (!mobileMenu || !menuToggle || !menuOverlay) return;
+        lastFocusedElement = document.activeElement;
+        mobileMenu.hidden = false;
+        menuOverlay.hidden = false;
+        requestAnimationFrame(() => {
+          menuOverlay.classList.add('is-visible');
+          mobileMenu.classList.add('is-open');
+        });
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.setAttribute('aria-label', 'メニューを閉じる');
+        document.body.classList.add('menu-open');
+
+        const focusable = getFocusableMenuItems();
+        if (focusable.length) focusable[0].focus();
+      };
+
+      if (menuToggle && mobileMenu && menuOverlay) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.contains('is-open');
+          if (isOpen) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        menuCloseControls.forEach((control) => {
+          control.addEventListener('click', () => closeMenu());
+        });
+
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => closeMenu({ restoreFocus: false }));
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (!mobileMenu.classList.contains('is-open')) return;
+
+          if (event.key === 'Escape') {
+            closeMenu();
+            return;
+          }
+
+          if (event.key !== 'Tab') return;
+          const focusable = getFocusableMenuItems();
+          if (!focusable.length) return;
+
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        });
+
+        listenToMedia(mobileQuery, (event) => {
+          if (!event.matches) closeMenu({ restoreFocus: false });
+        });
+      }
+
+      const stickyCta = document.querySelector('.mobile-sticky-cta');
+      const heroSection = document.querySelector('.hero');
+      const registrationSection = document.querySelector('#registration');
+      const footer = document.querySelector('.site-footer');
+      let stickyTicking = false;
+
+      const updateStickyCta = () => {
+        if (!stickyCta || !heroSection || !registrationSection || !footer) return;
+
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        const registrationTop = registrationSection.getBoundingClientRect().top;
+        const footerTop = footer.getBoundingClientRect().top;
+        const shouldShow = mobileQuery.matches
+          && heroBottom < 0
+          && registrationTop > window.innerHeight * 0.55
+          && footerTop > window.innerHeight;
+
+        stickyCta.classList.toggle('is-visible', shouldShow);
+        stickyTicking = false;
+      };
+
+      const requestStickyUpdate = () => {
+        if (!stickyTicking) {
+          requestAnimationFrame(updateStickyCta);
+          stickyTicking = true;
+        }
+      };
+
+      if (stickyCta) {
+        updateStickyCta();
+        window.addEventListener('scroll', requestStickyUpdate, { passive: true });
+        window.addEventListener('resize', requestStickyUpdate);
+        listenToMedia(mobileQuery, requestStickyUpdate);
+      }
 
       const revealSelectors = [
         '.section-heading', '.value-panel', '.question-card', '.answer-card', '.feature-card',
         '.status-card', '.timeline-item', '.content-card', '.material-card', '.steps-card',
         '.step', '.rules-grid article', '.message-card', '.collaboration-card', '.final-card',
-        '.visual-story-card'
+        '.visual-story-card', '.mobile-guide-panel'
       ];
 
       const revealTargets = document.querySelectorAll(revealSelectors.join(','));
@@ -942,7 +1181,7 @@
         ticking = false;
       };
 
-      if (!reduceMotion && window.matchMedia('(min-width: 760px)').matches) {
+      if (!reduceMotion && window.matchMedia('(min-width: 921px)').matches) {
         updateParallax();
         window.addEventListener('scroll', () => {
           if (!ticking) {
