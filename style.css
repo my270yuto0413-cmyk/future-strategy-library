@@ -487,6 +487,10 @@ img {
 
 .hero-photo {
   background-image: url("Image1.png");
+  background-image: image-set(
+    url("images/optimized/Image1-1536.webp") type("image/webp"),
+    url("Image1.png")
+  );
   background-position: center center;
   opacity: 0.98;
 }
@@ -1049,9 +1053,29 @@ img {
   transform: scale(1.06);
 }
 
-.visual-mountain::before { background-image: url("Image5.jpg"); }
-.visual-stars::before { background-image: url("Image3.jpg"); }
-.visual-sky::before { background-image: url("Image4.jpg"); }
+.visual-mountain::before {
+  background-image: url("Image5.jpg");
+  background-image: image-set(
+    url("images/optimized/Image5-1672.webp") type("image/webp"),
+    url("Image5.jpg")
+  );
+}
+
+.visual-stars::before {
+  background-image: url("Image3.jpg");
+  background-image: image-set(
+    url("images/optimized/Image3-1672.webp") type("image/webp"),
+    url("Image3.jpg")
+  );
+}
+
+.visual-sky::before {
+  background-image: url("Image4.jpg");
+  background-image: image-set(
+    url("images/optimized/Image4-1672.webp") type("image/webp"),
+    url("Image4.jpg")
+  );
+}
 
 .visual-story-card span {
   margin-bottom: 10px;
@@ -1374,6 +1398,12 @@ img {
   background:
     linear-gradient(rgba(2, 8, 18, 0.88), rgba(2, 8, 18, 0.9)),
     url("Image3.jpg") center / cover;
+  background:
+    linear-gradient(rgba(2, 8, 18, 0.88), rgba(2, 8, 18, 0.9)),
+    image-set(
+      url("images/optimized/Image3-1672.webp") type("image/webp"),
+      url("Image3.jpg")
+    ) center / cover;
   overflow: hidden;
 }
 
@@ -1682,6 +1712,10 @@ img {
 
 .why-photo {
   background-image: url("Image5.jpg");
+  background-image: image-set(
+    url("images/optimized/Image5-1672.webp") type("image/webp"),
+    url("Image5.jpg")
+  );
   background-position: center;
 }
 
@@ -1957,6 +1991,10 @@ img {
 
 .final-photo {
   background-image: url("Image4.jpg");
+  background-image: image-set(
+    url("images/optimized/Image4-1672.webp") type("image/webp"),
+    url("Image4.jpg")
+  );
   background-position: center;
 }
 
@@ -2375,6 +2413,14 @@ img {
     display: none;
   }
 
+  .hero-photo {
+    background-image: url("Image1.png");
+    background-image: image-set(
+      url("images/optimized/Image1-900.webp") type("image/webp"),
+      url("Image1.png")
+    );
+  }
+
   .button {
     width: 100%;
     min-height: 52px;
@@ -2445,6 +2491,30 @@ img {
     padding: 22px;
   }
 
+  .visual-mountain::before {
+    background-image: url("Image5.jpg");
+    background-image: image-set(
+      url("images/optimized/Image5-900.webp") type("image/webp"),
+      url("Image5.jpg")
+    );
+  }
+
+  .visual-stars::before {
+    background-image: url("Image3.jpg");
+    background-image: image-set(
+      url("images/optimized/Image3-900.webp") type("image/webp"),
+      url("Image3.jpg")
+    );
+  }
+
+  .visual-sky::before {
+    background-image: url("Image4.jpg");
+    background-image: image-set(
+      url("images/optimized/Image4-900.webp") type("image/webp"),
+      url("Image4.jpg")
+    );
+  }
+
   .visual-story-card.wide h2 {
     font-size: 1.55rem;
   }
@@ -2468,6 +2538,18 @@ img {
     min-height: auto;
   }
 
+  .timeline {
+    background:
+      linear-gradient(rgba(2, 8, 18, 0.88), rgba(2, 8, 18, 0.9)),
+      url("Image3.jpg") center / cover;
+    background:
+      linear-gradient(rgba(2, 8, 18, 0.88), rgba(2, 8, 18, 0.9)),
+      image-set(
+        url("images/optimized/Image3-900.webp") type("image/webp"),
+        url("Image3.jpg")
+      ) center / cover;
+  }
+
   .material-card {
     border-radius: 24px;
   }
@@ -2489,7 +2571,20 @@ img {
   }
 
   .why-photo {
+    background-image: url("Image5.jpg");
+    background-image: image-set(
+      url("images/optimized/Image5-900.webp") type("image/webp"),
+      url("Image5.jpg")
+    );
     background-position: 52% center;
+  }
+
+  .final-photo {
+    background-image: url("Image4.jpg");
+    background-image: image-set(
+      url("images/optimized/Image4-900.webp") type("image/webp"),
+      url("Image4.jpg")
+    );
   }
 
   .quote-line {

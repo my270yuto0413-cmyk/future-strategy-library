@@ -29,7 +29,22 @@
   />
 
   <link rel="canonical" href="https://my270yuto0413-cmyk.github.io/future-strategy-library/" />
-  <link rel="preload" as="image" href="Image1.png?v=20260624-hero1" fetchpriority="high" />
+  <link
+    rel="preload"
+    as="image"
+    href="images/optimized/Image1-900.webp"
+    type="image/webp"
+    media="(max-width: 680px)"
+    fetchpriority="high"
+  />
+  <link
+    rel="preload"
+    as="image"
+    href="images/optimized/Image1-1536.webp"
+    type="image/webp"
+    media="(min-width: 681px)"
+    fetchpriority="high"
+  />
   <link rel="stylesheet" href="style.css?v=20260624-hero1" />
 
   <meta property="og:locale" content="ja_JP" />
@@ -570,11 +585,18 @@
         <div class="materials-grid">
           <article class="material-card" data-glow="英語を、将来の選択肢へ接続する導入資料">
             <div class="material-image-wrap">
-              <img
-                src="./images/why-english.png"
-                alt="翻訳できる時代に、なぜ英語を学ぶのか。"
-                loading="lazy"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="./images/optimized/why-english-360.webp 360w, ./images/optimized/why-english-600.webp 600w"
+                  sizes="(max-width: 680px) calc(100vw - 36px), 25vw"
+                />
+                <img
+                  src="./images/why-english.png"
+                  alt="翻訳できる時代に、なぜ英語を学ぶのか。"
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <div class="material-body">
               <span class="material-category">English / Introduction</span>
