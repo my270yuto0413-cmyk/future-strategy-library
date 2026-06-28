@@ -292,6 +292,28 @@ img {
   box-shadow: 0 18px 42px rgba(115, 231, 255, 0.32);
 }
 
+.header-compass-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.82rem;
+  font-weight: 900;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.header-compass-link:hover {
+  color: var(--cyan);
+  background: rgba(115, 231, 255, 0.1);
+  border-color: rgba(115, 231, 255, 0.32);
+  transform: translateY(-1px);
+}
+
 .menu-toggle,
 .mobile-menu-close {
   appearance: none;
@@ -457,8 +479,38 @@ img {
   transform: rotate(45deg);
 }
 
+.mobile-menu-compass {
+  display: grid;
+  gap: 4px;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.mobile-menu-compass span {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mobile-menu-compass strong {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.mobile-menu-compass:hover {
+  border-color: rgba(115, 231, 255, 0.36);
+  background: rgba(115, 231, 255, 0.1);
+}
+
 .mobile-menu-cta {
-  margin-top: 26px;
+  margin-top: 22px;
 }
 
 /* Hero */
@@ -2882,6 +2934,24 @@ img {
   font-weight: 850;
 }
 
+.footer-compass-link {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding-top: 4px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.footer-compass-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--cyan);
+  font-weight: 900;
+}
+
 .copyright {
   grid-column: 1 / -1;
   color: rgba(255, 255, 255, 0.42);
@@ -2954,7 +3024,8 @@ img {
 }
 
 @media (max-width: 920px) {
-  .site-nav {
+  .site-nav,
+  .header-compass-link {
     display: none;
   }
 
