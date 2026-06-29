@@ -102,30 +102,85 @@
 <body>
   <a class="skip-link" href="#main">本文へスキップ</a>
 
-  <header class="site-header">
+    <header class="site-header" data-site-header>
     <div class="header-inner">
-      <a href="#top" class="site-logo" aria-label="未来戦略ライブラリ トップへ">
-        <span class="logo-mark" aria-hidden="true"></span>
-        <span>未来戦略ライブラリ</span>
+      <a href="#top" class="site-logo" aria-label="Future Strategy Library home">
+        <span class="logo-mark" aria-hidden="true">
+          <span></span>
+        </span>
+        <span class="logo-copy">
+          <strong>Future Strategy Library</strong>
+          <small>by COMPASS</small>
+        </span>
       </a>
 
-      <nav class="site-nav" aria-label="メインナビゲーション">
-        <a href="#value">Value</a>
-        <a href="#about">About</a>
-        <a href="#status">Status</a>
-        <a href="#contents">Contents</a>
-        <a href="#materials">Materials</a>
-        <a href="#registration">Registration</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <div class="nav-group" data-nav-menu>
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="library-menu">
+            Library
+          </button>
+          <div id="library-menu" class="nav-panel" role="menu">
+            <a class="panel-link" href="#value" role="menuitem">
+              <span>Value</span>
+              <small>Why this library exists</small>
+            </a>
+            <a class="panel-link" href="#about" role="menuitem">
+              <span>About</span>
+              <small>Purpose and operating principles</small>
+            </a>
+            <a class="panel-link" href="#status" role="menuitem">
+              <span>Status</span>
+              <small>Current reach and progress</small>
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-group" data-nav-menu>
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="contents-menu">
+            Contents
+          </button>
+          <div id="contents-menu" class="nav-panel" role="menu">
+            <a class="panel-link" href="#contents" role="menuitem">
+              <span>Contents</span>
+              <small>English, AI, research, and career strategy</small>
+            </a>
+            <a class="panel-link" href="#materials" role="menuitem">
+              <span>Materials</span>
+              <small>Available guides and resources</small>
+            </a>
+            <a class="panel-link" href="#rules" role="menuitem">
+              <span>Rules</span>
+              <small>Use policy and sharing boundaries</small>
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-group" data-nav-menu>
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="access-menu">
+            Access
+          </button>
+          <div id="access-menu" class="nav-panel" role="menu">
+            <a class="panel-link" href="#registration" role="menuitem">
+              <span>Registration</span>
+              <small>How to request access</small>
+            </a>
+            <a
+              class="panel-link"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf8gLujuK-giYnkCnv-Cxp7qon1kY8mhnGvfkA62hOlrJgAHA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="menuitem"
+            >
+              <span>Registration Form</span>
+              <small>Open the Google Form</small>
+            </a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="https://my270yuto0413-cmyk.github.io/compass/index.html" target="_blank" rel="noopener noreferrer">
+          COMPASS
+        </a>
       </nav>
-
-      <a
-        class="header-compass-link"
-        href="https://my270yuto0413-cmyk.github.io/compass/index.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        COMPASS公式 <span aria-hidden="true">↗</span>
-      </a>
 
       <a
         class="header-button"
@@ -133,7 +188,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        無料で資料を見る
+        Free Access
       </a>
 
       <button
@@ -141,7 +196,8 @@
         type="button"
         aria-controls="mobile-menu"
         aria-expanded="false"
-        aria-label="メニューを開く"
+        aria-label="Open menu"
+        data-menu-toggle
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -149,48 +205,61 @@
     </div>
   </header>
 
-  <div class="mobile-menu-overlay" data-menu-close hidden></div>
+  <div class="mobile-scrim" data-menu-close hidden></div>
   <aside
     id="mobile-menu"
     class="mobile-menu"
-    aria-label="モバイルナビゲーション"
+    aria-label="Mobile navigation"
     aria-hidden="true"
     tabindex="-1"
     hidden
   >
     <div class="mobile-menu-panel">
       <div class="mobile-menu-top">
-        <p>Future Strategy Library</p>
-        <button class="mobile-menu-close" type="button" data-menu-close aria-label="メニューを閉じる">
+        <div>
+          <p>Future Strategy Library</p>
+          <span>COMPASS resource project</span>
+        </div>
+        <button class="mobile-menu-close" type="button" data-menu-close aria-label="Close menu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </button>
       </div>
-      <p class="mobile-menu-trust">北里大学薬学部生向け・登録無料</p>
-      <nav class="mobile-menu-nav" aria-label="モバイルメニュー">
-        <a href="#value">Value</a>
-        <a href="#about">About</a>
-        <a href="#contents">Contents</a>
-        <a href="#materials">Materials</a>
-        <a href="#registration">Registration</a>
-        <a href="#rules">Rules</a>
+
+      <nav class="mobile-nav" aria-label="Mobile menu links">
+        <section class="mobile-nav-group" aria-labelledby="mobile-library-title">
+          <h2 id="mobile-library-title">Library</h2>
+          <a href="#value">Value</a>
+          <a href="#about">About</a>
+          <a href="#status">Status</a>
+        </section>
+
+        <section class="mobile-nav-group" aria-labelledby="mobile-contents-title">
+          <h2 id="mobile-contents-title">Contents</h2>
+          <a href="#contents">Contents</a>
+          <a href="#materials">Materials</a>
+          <a href="#rules">Rules</a>
+        </section>
+
+        <section class="mobile-nav-group" aria-labelledby="mobile-access-title">
+          <h2 id="mobile-access-title">Access</h2>
+          <a href="#registration">Registration</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8gLujuK-giYnkCnv-Cxp7qon1kY8mhnGvfkA62hOlrJgAHA/viewform" target="_blank" rel="noopener noreferrer">Registration Form</a>
+        </section>
+
+        <section class="mobile-nav-group" aria-labelledby="mobile-compass-title">
+          <h2 id="mobile-compass-title">COMPASS</h2>
+          <a href="https://my270yuto0413-cmyk.github.io/compass/index.html" target="_blank" rel="noopener noreferrer">COMPASS Official Website</a>
+        </section>
       </nav>
-      <a
-        class="mobile-menu-compass"
-        href="https://my270yuto0413-cmyk.github.io/compass/index.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span>運営母体</span>
-        <strong>学生支援団体COMPASS 公式サイト <span aria-hidden="true">↗</span></strong>
-      </a>
+
       <a
         class="button button-primary mobile-menu-cta"
         href="https://docs.google.com/forms/d/e/1FAIpQLSf8gLujuK-giYnkCnv-Cxp7qon1kY8mhnGvfkA62hOlrJgAHA/viewform"
         target="_blank"
         rel="noopener noreferrer"
       >
-        大学アカウントで無料登録
+        Free Access
       </a>
     </div>
   </aside>
@@ -1099,10 +1168,41 @@
         }
       };
       root.classList.add('reveal-enabled');
+      const header = document.querySelector('[data-site-header]');
+      const navGroups = Array.from(document.querySelectorAll('[data-nav-menu]'));
+      const closeAllNavGroups = () => {
+        navGroups.forEach((group) => {
+          group.classList.remove('is-open');
+          const trigger = group.querySelector('.nav-trigger');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        });
+      };
 
-      const menuToggle = document.querySelector('.menu-toggle');
+      navGroups.forEach((group) => {
+        const trigger = group.querySelector('.nav-trigger');
+        if (!trigger) return;
+
+        trigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const isOpen = group.classList.contains('is-open');
+          closeAllNavGroups();
+          group.classList.toggle('is-open', !isOpen);
+          trigger.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        trigger.addEventListener('keydown', (event) => {
+          if (event.key !== 'ArrowDown') return;
+          event.preventDefault();
+          group.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+          const firstLink = group.querySelector('.nav-panel a');
+          if (firstLink) firstLink.focus();
+        });
+      });
+
+      const menuToggle = document.querySelector('[data-menu-toggle]');
       const mobileMenu = document.querySelector('#mobile-menu');
-      const menuOverlay = document.querySelector('.mobile-menu-overlay');
+      const menuOverlay = document.querySelector('.mobile-scrim');
       const menuCloseControls = document.querySelectorAll('[data-menu-close]');
       let lastFocusedElement = null;
 
@@ -1117,7 +1217,7 @@
         menuOverlay.classList.remove('is-visible');
         mobileMenu.setAttribute('aria-hidden', 'true');
         menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'メニューを開く');
+        menuToggle.setAttribute('aria-label', 'Open menu');
         document.body.classList.remove('menu-open');
 
         window.setTimeout(() => {
@@ -1143,7 +1243,7 @@
         });
         mobileMenu.setAttribute('aria-hidden', 'false');
         menuToggle.setAttribute('aria-expanded', 'true');
-        menuToggle.setAttribute('aria-label', 'メニューを閉じる');
+        menuToggle.setAttribute('aria-label', 'Close menu');
         document.body.classList.add('menu-open');
 
         const focusable = getFocusableMenuItems();
@@ -1169,13 +1269,13 @@
         });
 
         document.addEventListener('keydown', (event) => {
-          if (!mobileMenu.classList.contains('is-open')) return;
-
           if (event.key === 'Escape') {
-            closeMenu();
+            closeAllNavGroups();
+            if (mobileMenu.classList.contains('is-open')) closeMenu();
             return;
           }
 
+          if (!mobileMenu.classList.contains('is-open')) return;
           if (event.key !== 'Tab') return;
           const focusable = getFocusableMenuItems();
           if (!focusable.length) return;
@@ -1195,6 +1295,15 @@
           if (!event.matches) closeMenu({ restoreFocus: false });
         });
       }
+
+      document.addEventListener('click', closeAllNavGroups);
+
+      const updateHeader = () => {
+        if (!header) return;
+        header.classList.toggle('is-scrolled', window.scrollY > 12);
+      };
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
 
       const stickyCta = document.querySelector('.mobile-sticky-cta');
       const heroSection = document.querySelector('.hero');
